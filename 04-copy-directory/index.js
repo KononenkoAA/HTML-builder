@@ -4,7 +4,8 @@ const path = require("path");
 const srcPath = path.join(__dirname, "files");
 const destPath = path.join(__dirname, "files-copy");
 
-fs.rm(destPath, (err) => {});
+// fsExtra.remove(destPath, (err) => {});
+fs.rm(destPath, { recursive: true, force: true }, (err) => {});
 
 fs.readdir(srcPath, (error, data) => {
   fs.mkdir(destPath, (err) => {});
